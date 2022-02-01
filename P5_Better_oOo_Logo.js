@@ -5,6 +5,11 @@ function resizeFromContainer() {
 }
 
 let centerWaveMode = false;
+let noColor = false;
+let blackBG = false;
+let hideText = false;
+
+
 
 let myCanvas;
 
@@ -13,6 +18,10 @@ let o_shape;
 let next_o_shape;
 let ratioWtoH = 1;
 let next_ratioWtoH = 1;
+
+let baseSize = 150;
+let smallBaseSize = 100;
+let margin = 10;
 
 
 
@@ -36,7 +45,7 @@ function preload() {
 }
 
 function getShape() {
-  let oNumber = ceil(random(0, 10));
+  let oNumber = ceil(random(0, 14));
 
   if (next_o_shape) {
     o_shape = next_o_shape;
@@ -48,7 +57,7 @@ function getShape() {
     );
   }
 
-  oNumber = ceil(random(0, 10));
+  oNumber = ceil(random(0, 14));
 
   next_o_shape = loadSVG("assets/Asset" + str(oNumber) + ".svg", () => {
   }
@@ -67,6 +76,18 @@ function keyPressed() {
 
   if (key == 'c' || key == 'C') {
     centerWaveMode = !centerWaveMode;
+  }
+
+  if (key == 'k' || key == 'K') {
+    noColor = !noColor;
+  }
+
+  if (key == 'b' || key == 'B') {
+    blackBG = !blackBG;
+  }
+
+  if (key == 'h' || key == 'H') {
+    hideText = !hideText;
   }
 }
 
@@ -105,22 +126,35 @@ function draw() {
     clear();
   }
 
+  if (blackBG) {
+    background(0);
+  }
+
+
   textAlign(CENTER);
   textSize(20);
-  fill(color(red(some_color) / 1.3, green(some_color) / 1.3, blue(some_color) / 1.3));
-
-  text("SPAZIO per cambiare forma e colore", width / 2, height - 80);
-
-  if (getAudioContext().state != "running") {
-    text("Premere sul logo e dare accesso al microfono per iniziare", width / 2, height - 50);
+  if (!noColor) {
+    fill(color(red(some_color) / 1.3, green(some_color) / 1.3, blue(some_color) / 1.3));
   } else {
-    let currentMode = centerWaveMode ? "Dal Centro" : "Da Sinistra";
-    text("C per cambiare tipo di onda. Modalità attuale: " + currentMode, width / 2, height - 50);
+    if (blackBG) {
+      fill(color(255));
+    } else {
+      fill(color(0));
+    }
   }
-  //background(0);
+
+  if (!hideText) {
+
+    text("SPAZIO per cambiare forma e colore. K per disattivare il colore del logo. B per sfondo nero.", width / 2, height - 80);
 
 
+    let currentMode = centerWaveMode ? "Dal Centro" : "Da Sinistra";
+    text("H per nascondere il testo. C per cambiare tipo di onda. Modalità attuale: " + currentMode, width / 2, height - 50);
 
+    if (getAudioContext().state != "running") {
+      text("Dare accesso al microfono e premere sul logo e  per iniziare", width / 2, height / 2 + smallBaseSize - 50);
+    }
+  }
 
 
   reverb.drywet(map(mouseX, 0, width, 0, 1));
@@ -136,9 +170,7 @@ function draw() {
   volumeGraph[0] = volume;
 
 
-  let baseSize = 150;
-  let smallBaseSize = 100;
-  let margin = 10;
+
 
 
   if (centerWaveMode) {
@@ -184,9 +216,17 @@ function draw() {
     }
   }
 
-  tint(100, 10, 0);
+  //tint(100, 10, 0);
 
-  o_shape.attribute('fill', 'rgb(' + str(red(some_color)) + ',' + str(green(some_color)) + ',' + str(blue(some_color)) + ')');
+  if (!noColor) {
+    o_shape.attribute('fill', 'rgb(' + str(red(some_color)) + ',' + str(green(some_color)) + ',' + str(blue(some_color)) + ')');
+  } else {
+    if (blackBG) {
+      o_shape.attribute('fill', 'rgb(' + str(255) + ',' + str(255) + ',' + str(255) + ')');
+    } else {
+      o_shape.attribute('fill', 'rgb(' + str(0) + ',' + str(0) + ',' + str(0) + ')');
+    }
+  }
   //o_shape.attribute('stroke', 'rgb(' +  str(red(some_color)) + ',' +str(green(some_color)) + ',' +str(blue(some_color)) + ')');
   //o_shape.attribute('stroke-width', '2');
 
@@ -212,21 +252,25 @@ function draw() {
     sizesLerped[2]);
 
 
-  image(o_shape, 100,
-    80 - 200 / 2 / 4.0,
-    200 * ratioWtoH / 4.0,
-    200 / 4.0);
+
+  if (!hideText) {
+
+    image(o_shape, width / 2,
+      80 - 200 / 2 / 4.0,
+      200 * ratioWtoH / 4.0,
+      200 / 4.0);
 
 
-  image(o_shape, 100 - 120 / 2 * ratioWtoH / 4.0 - 200 / 2 * ratioWtoH / 4.0 - margin / 3.0,
-    80 - 120 / 2 / 4.0,
-    120 * ratioWtoH / 4.0,
-    120 / 4.0);
+    image(o_shape, width / 2 - 120 / 2 * ratioWtoH / 4.0 - 200 / 2 * ratioWtoH / 4.0 - margin / 3.0,
+      80 - 120 / 2 / 4.0,
+      120 * ratioWtoH / 4.0,
+      120 / 4.0);
 
-  image(o_shape, 100 + 120 / 2 * ratioWtoH / 4.0 + 200 / 2 * ratioWtoH / 4.0 + margin / 3.0,
-    80 - 120 / 2 / 4.0,
-    120 * ratioWtoH / 4.0,
-    120 / 4.0);
+    image(o_shape, width / 2 + 120 / 2 * ratioWtoH / 4.0 + 200 / 2 * ratioWtoH / 4.0 + margin / 3.0,
+      80 - 120 / 2 / 4.0,
+      120 * ratioWtoH / 4.0,
+      120 / 4.0);
+  }
 }
 
 
