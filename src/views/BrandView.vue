@@ -40,7 +40,7 @@ onMounted(() => {
         >
           <img
             class="absolute h-[20rem] object-cover md:h-auto md:w-[35rem] lg:w-[48rem] xl:w-[72rem] md:max-w-none md:translate-x-12 lg:translate-x-32 transition-all"
-            src="@/assets/img/Pianista White.png"
+            src="@/assets/img/Pianista_White.png"
             alt=""
           />
         </div>
@@ -255,7 +255,7 @@ onMounted(() => {
   <div class="container mx-auto p-5">
     <div class="flex gap-9">
       <div class="hidden md:block md:flex-1 md:order-2">
-        <img class="" src="@/assets/img/ooo-logo 1.png" alt="" />
+        <img class="" src="@/assets/img/ooo-logo_1.png" alt="" />
       </div>
       <div
         class="text-center md:text-left md:flex-1 md:flex md:flex-col md:justify-center md:order-1"
@@ -264,7 +264,7 @@ onMounted(() => {
           <ColorIcon class="h-9 w-9 md:h-24 md:w-24" />
           <h2 class="lg:text-7xl m-0">Colore</h2>
         </div>
-        <img class="md:hidden mb-4" src="@/assets/img/ooo-logo 1.png" alt="" />
+        <img class="md:hidden mb-4" src="@/assets/img/ooo-logo_1.png" alt="" />
         <p class="lg:w-4/5">
           La <strong>frequenza sonora della nota</strong> prodotta dalla voce
           corrisponde a <strong>una specifica frequenza cromatica</strong> dello
@@ -276,11 +276,7 @@ onMounted(() => {
   <div class="container mx-auto p-5">
     <div class="flex gap-9">
       <div class="hidden md:block md:flex-1 md:order-1">
-        <img
-          class=""
-          src="@/assets/img/Logo Animation Dark-0001 copy.png"
-          alt=""
-        />
+        <img class="" src="@/assets/img/Logo_Animation_Dark-0001.png" alt="" />
       </div>
       <div
         class="text-center md:text-left md:flex-1 md:flex md:flex-col md:justify-center md:order-2"
@@ -291,7 +287,7 @@ onMounted(() => {
         </div>
         <img
           class="md:hidden mb-4"
-          src="@/assets/img/Logo Animation Dark-0001 copy.png"
+          src="@/assets/img/Logo_Animation_Dark-0001.png"
           alt=""
         />
         <p class="lg:w-4/5">
@@ -305,11 +301,7 @@ onMounted(() => {
   <div class="container mx-auto p-5">
     <div class="flex gap-9">
       <div class="hidden md:block md:flex-1 md:order-2">
-        <img
-          class=""
-          src="@/assets/img/Logo Animation Dark-0002 copy.png"
-          alt=""
-        />
+        <img class="" src="@/assets/img/Logo_Animation_Dark-0002.png" alt="" />
       </div>
       <div
         class="text-center md:text-left md:flex-1 md:flex md:flex-col md:justify-center md:order-1"
@@ -320,7 +312,7 @@ onMounted(() => {
         </div>
         <img
           class="md:hidden mb-4"
-          src="@/assets/img/Logo Animation Dark-0002 copy.png"
+          src="@/assets/img/Logo_Animation_Dark-0002.png"
           alt=""
         />
         <p class="lg:w-4/5">
@@ -336,7 +328,7 @@ onMounted(() => {
       <div class="hidden md:block md:flex-1 md:order-1">
         <img
           class=""
-          src="@/assets/img/oOo Logo Animation FINALE-0003 1.png"
+          src="@/assets/img/oOo_Logo_Animation_FINALE-0003_1.png"
           alt=""
         />
       </div>
@@ -349,7 +341,7 @@ onMounted(() => {
         </div>
         <img
           class="md:hidden mb-4"
-          src="@/assets/img/oOo Logo Animation FINALE-0003 1.png"
+          src="@/assets/img/oOo_Logo_Animation_FINALE-0003_1.png"
           alt=""
         />
         <p class="lg:w-4/5">
@@ -367,9 +359,9 @@ onMounted(() => {
     <div class="mx-auto text-center p-5">
       <h2 class="text-center">Palette</h2>
       <div class="flex flex-col md:hidden gap-5">
-        <img class="" src="@/assets/img/Palette 1.png" alt="" />
-        <img class="" src="@/assets/img/Palette 2.png" alt="" />
-        <img class="" src="@/assets/img/Palette 3.png" alt="" />
+        <img class="" src="@/assets/img/Palette_1.png" alt="" />
+        <img class="" src="@/assets/img/Palette_2.png" alt="" />
+        <img class="" src="@/assets/img/Palette_3.png" alt="" />
       </div>
 
       <img class="hidden md:block" src="@/assets/img/Palette.png" alt="" />

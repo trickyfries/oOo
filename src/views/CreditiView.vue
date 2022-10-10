@@ -17,7 +17,7 @@ onMounted(() => {
       <div class="flex justify-center">
         <img
           class="h-72 md:h-[43rem] object-contain"
-          src="@/assets/img/ISIA Logo 1.png"
+          src="@/assets/img/ISIA_Logo_1.png"
           alt=""
         />
       </div>

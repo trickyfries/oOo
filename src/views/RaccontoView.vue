@@ -69,7 +69,7 @@ onMounted(() => {
         loop="false"
         preload="auto"
         poster="@/assets/img/videothumbnail.png"
-        src="@/assets/video/oOo_Video Promozionale_Export_Web.mp4"
+        src="@/assets/video/oOo_Video_Promozionale_Export_Web.mp4"
         class="rounded-xl"
       ></video>
       <div
