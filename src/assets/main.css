@@ -1,0 +1,117 @@
+/* @import "./base.css"; */
+/* @import "normalize.css"; */
+@import "fonts.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply text-white bg-black text-xl;
+  @apply text-lg;
+
+  line-height: 1;
+  letter-spacing: 0.03rem;
+}
+
+* {
+  &::selection {
+    @apply bg-white text-black;
+  }
+}
+
+.bg-neutral {
+  @apply bg-black;
+  @apply transition-colors;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+
+.lightMode {
+  @apply transition-colors;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+
+  @apply text-black bg-white;
+
+  &::selection {
+    @apply bg-black text-white;
+  }
+  & *::selection {
+    @apply bg-black text-white;
+  }
+
+  .bg-neutral,
+  &.bg-neutral {
+    @apply bg-white;
+  }
+
+  .menuItem {
+    @apply text-whiteDarkest md:hover:text-black;
+  }
+
+  .btn {
+    @apply bg-black text-white;
+  }
+}
+
+.circleAnimationClip {
+  transition: clip-path 0.6s;
+  transition-timing-function: ease-in-out;
+  clip-path: circle(0% at 0% 0%);
+
+  &.expanded {
+    clip-path: circle(150% at 0% 0%);
+  }
+}
+
+.menuItem {
+  @apply font-bold font-display;
+  @apply text-6xl  sm:text-8xl md:text-9xl lg:text-[10rem];
+  @apply md:text-blackLightest md:hover:text-white;
+  @apply md:transition-colors md:ease-out;
+}
+
+.footerMenuItem {
+  @apply font-medium;
+  @apply text-5xl sm:text-6xl md:text-7xl;
+  @apply md:transition-colors md:ease-out;
+}
+
+h1 {
+  @apply font-display text-5xl font-extrabold sm:text-6xl md:text-7xl lg:text-8xl;
+}
+
+h2 {
+  @apply font-display text-4xl  font-extrabold sm:text-5xl md:text-6xl lg:text-[4rem] mb-14;
+}
+
+h6 {
+  @apply text-xl font-medium md:text-3xl lg:text-3xl mb-6;
+
+  &.large {
+    @apply md:text-5xl;
+  }
+}
+
+p {
+  @apply text-lg md:text-2xl mb-6;
+
+  &.large {
+    @apply md:text-3xl;
+  }
+}
+strong {
+  @apply font-medium;
+}
+
+button.btn {
+  @apply text-lg font-medium leading-none md:text-2xl;
+  @apply bg-white text-black;
+  @apply rounded-md;
+  @apply py-4 px-12 md:py-5 md:px-16;
+}
+
+.section {
+  @apply pb-20 md:pb-28;
+}
